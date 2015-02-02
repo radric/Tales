@@ -25,17 +25,15 @@ public class tale1 extends Activity implements MediaPlayer.OnPreparedListener {
     AudioManager am;
     ImageButton btnPlayResume;
     TextView taleName_txtvw,taleText_txtvw;
-    String taleName_str;
+    String taleName_str,action;
     InputStream is;
-    int play_flag=0;
-
-
+    int play_flag=0,size;
+    byte[] buffer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tale1);
-
 
         am = (AudioManager) getSystemService(AUDIO_SERVICE);
         btnPlayResume = (ImageButton) findViewById(R.id.btnPlayResume);
@@ -45,21 +43,53 @@ public class tale1 extends Activity implements MediaPlayer.OnPreparedListener {
 
         Intent intent = getIntent();
         taleName_str = intent.getStringExtra("taleNameExtra");
+        action = intent.getAction();
         taleName_txtvw.setText(taleName_str);
 
-        // reading the *.txt files
-        AssetManager assetManager = getAssets();
-        try {
-            is = assetManager.open("tale1_text.txt");
-            int size1 = is.available();
-            byte[] buffer2 = new byte[size1];
-            is.read(buffer2);
-            is.close();
+        getTaleText();
 
-            String text = new String(buffer2);
-            taleText_txtvw.setText(text);
-        } catch (IOException e) {
-            e.printStackTrace();
+    }
+
+    //get tale Text depending on action
+    public void getTaleText() {
+        AssetManager assetManager = getAssets();
+        if (action.equals("ua.andriyantonov.tales.tale1")){
+            // reading the *.txt files
+            try {
+                is = assetManager.open("tale1_text.txt");
+                size = is.available();
+                buffer = new byte[size];
+                is.read(buffer);
+                is.close();
+                String text = new String(buffer);
+                taleText_txtvw.setText(text);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } else if (action.equals("ua.andriyantonov.tales.tale2")){
+            try {
+                is = assetManager.open("tale2_text.txt");
+                size = is.available();
+                buffer = new byte[size];
+                is.read(buffer);
+                is.close();
+                String text = new String(buffer);
+                taleText_txtvw.setText(text);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            if (play_flag==0) {
+                mediaPlayer = MediaPlayer.create(this, R.raw.tale2_audio);}
+        }
+    }
+
+    // get tale Audio depending on action
+    public void getTaleAudio(){
+        if (action.equals("ua.andriyantonov.tales.tale1")){
+            mediaPlayer = MediaPlayer.create(this, R.raw.tale1_audio);
+        } else if (action.equals("ua.andriyantonov.tales.tale2")){
+            mediaPlayer = MediaPlayer.create(this, R.raw.tale2_audio);
         }
     }
 
@@ -68,7 +98,7 @@ public class tale1 extends Activity implements MediaPlayer.OnPreparedListener {
         switch (view.getId()){
             case R.id.btnPlayResume:
                 if (play_flag==0) {
-                    mediaPlayer = MediaPlayer.create(this, R.raw.tale1_audio);
+                    getTaleAudio();
                     mediaPlayer.start();
                     play_flag = 1;
                     btnPlayResume.setImageResource(R.drawable.pause_select);
@@ -161,10 +191,5 @@ public class tale1 extends Activity implements MediaPlayer.OnPreparedListener {
         super.onStop();
         releaseMP();
     }
-    @Override
-    public void onDestroy(){
-        Log.d(TAG, "destroy");
-        super.onDestroy();
 
-    }
 }
