@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="ua.andriyantonov.tales.tale1"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ll_player"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background"
+            android:src="@drawable/play_select"
+            android:id="@+id/btnPlayResume"
+            android:onClick="onPlayClick"
+            android:layout_margin="5dp"
+            style="@style/playerBtnStyle"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/play"
+            android:id="@+id/btnStop"
+            android:onClick="onPlayClick"
+            android:src="@drawable/stop_select"
+            android:layout_margin="5dp"
+            android:background="@drawable/background"
+            android:layout_toRightOf="@+id/btnPlayResume"
+            style="@style/playerBtnStyle"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnBackward"
+            android:onClick="onPlayClick"
+            android:src="@drawable/backward_select"
+            android:layout_margin="5dp"
+            android:background="@drawable/background"
+            android:layout_toRightOf="@+id/btnStop"
+            style="@style/playerBtnStyle"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnForward"
+            android:onClick="onPlayClick"
+            android:layout_margin="5dp"
+            android:src="@drawable/forward_select"
+            android:background="@drawable/background"
+            android:layout_toRightOf="@+id/btnBackward"
+            style="@style/playerBtnStyle"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/ll_reader"
+        android:layout_below="@+id/ll_player"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/taleName"
+            android:hint="taleName"
+            style="@style/taleNameStyle"
+            android:layout_gravity="center_horizontal" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/llScrolView">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/teleText"
+                    android:hint="taleText"
+                    style="@style/taleTextStyle" />
+                </LinearLayout>
+
+
+        </ScrollView>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
