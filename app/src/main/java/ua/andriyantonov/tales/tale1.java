@@ -27,12 +27,14 @@ public class tale1 extends Activity implements MediaPlayer.OnPreparedListener {
     TextView taleName_txtvw,taleText_txtvw;
     String taleName_str,action;
     InputStream is;
+    Intent intent;
     int play_flag=0,size;
     byte[] buffer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Utils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_tale1);
 
         am = (AudioManager) getSystemService(AUDIO_SERVICE);
@@ -158,14 +160,10 @@ public class tale1 extends Activity implements MediaPlayer.OnPreparedListener {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            return true;
+            intent = new Intent(this,Settings.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

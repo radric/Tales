@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="ThemeDay" parent="@android:style/Theme.NoTitleBar">
+        <item name="pageBackground">@style/pageBackground_day</item>
+        <item name="pagePaddingLayout">@style/pagePaddingLayout_day</item>
+        <item name="textTitle">@style/textTitle_day</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+</resources>

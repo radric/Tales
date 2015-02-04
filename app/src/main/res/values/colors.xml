@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    //tTheme.Day
+    <color name="theme_background_startColor_day">#ffffffc2</color>
+    <color name="theme_background_endColor_day">#ffc1861c</color>
+    <color name="textTitle_color_day">#ff90341e</color>
+    <color name="textTitle_shadowColor_day">#ff582012</color>
+</resources>

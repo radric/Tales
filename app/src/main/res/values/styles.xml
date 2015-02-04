@@ -2,21 +2,38 @@
 
     <!-- Base application theme. -->
     <style name="MyTaleTheme" parent="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
+        <item name="android:windowBackground">@drawable/background_theme_day</item>
         <item name="android:orientation">vertical</item>
-        <item name="android:windowBackground">@drawable/theme_background</item>
     </style>
     <style name="taleNameStyle">
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">25sp</item>
         <item name="android:textAllCaps">true</item>
-        <item name="android:textColor">@color/taleNameColor</item>
     </style>
     <style name="taleTextStyle">
         <item name="android:textSize">19sp</item>
-        <item name="android:textColor">@color/taleTextColor</item>
     </style>
-    <style name="playerBtnStyle">
-        <item name="android:alpha">0.3</item>
+
+
+
+//Theme.day
+    <style name="pageBackground_day">
+        <item name="android:windowBackground">@drawable/background_theme_day</item>
+    </style>
+    <style name="pagePaddingLayout_day">
+        <item name="android:padding">@dimen/page_margin_day</item>
+    </style>
+    <dimen name="page_margin_day">2sp</dimen>
+    <style name="textTitle_day">
+        <item name="android:textColor">@color/textTitle_color_day</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:shadowDx">1.0</item>
+        <item name="android:shadowDy">1.0</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:shadowColor">@color/textTitle_shadowColor_day</item>
     </style>
 
 </resources>
