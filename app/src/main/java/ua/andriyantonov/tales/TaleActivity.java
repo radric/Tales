@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import static ua.andriyantonov.tales.R.drawable.play_select;
 
-public class tale1 extends Activity implements MediaPlayer.OnPreparedListener {
+public class TaleActivity extends Activity implements MediaPlayer.OnPreparedListener {
 
     public static String TAG = "myLogs";
 
@@ -35,7 +35,7 @@ public class tale1 extends Activity implements MediaPlayer.OnPreparedListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Utils.onActivityCreateSetTheme(this);
-        setContentView(R.layout.activity_tale1);
+        setContentView(R.layout.activity_tales);
 
         am = (AudioManager) getSystemService(AUDIO_SERVICE);
         btnPlayResume = (ImageButton) findViewById(R.id.btnPlayResume);
@@ -188,6 +188,12 @@ public class tale1 extends Activity implements MediaPlayer.OnPreparedListener {
         Log.d(TAG,"stop");
         super.onStop();
         releaseMP();
+    }
+    @Override
+    public void onBackPressed(){
+        Intent intent =new Intent(this, MainActivity.class);
+        startActivity(intent);
+        super.onBackPressed();
     }
 
 }

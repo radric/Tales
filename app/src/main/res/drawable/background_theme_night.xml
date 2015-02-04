@@ -3,10 +3,9 @@
     android:dither="true"
     android:shape="rectangle">
     <gradient
-        android:angle="45"
-        android:startColor="@color/theme_background_startColor_day"
-        android:endColor="@color/theme_background_endColor_day"/>
+        android:angle="270"
+        android:startColor="@color/theme_background_startColor_night"
+        android:endColor="@color/theme_background_endColor_night"/>
 
 
 </shape>
-

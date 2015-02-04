@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    //tTheme.Day
+    //tThemeDay
     <color name="theme_background_startColor_day">#ffffffc2</color>
-    <color name="theme_background_endColor_day">#ffc1861c</color>
-    <color name="textTitle_color_day">#ff90341e</color>
-    <color name="textTitle_shadowColor_day">#ff582012</color>
+    <color name="theme_background_endColor_day">#ffa4b2ff</color>
+    <color name="textTitle_color_day">#ff293851</color>
+    <color name="textTitle_shadowColor_day">#bc110d31</color>
+    <color name="textRegular_color_day">#ff242424</color>
+    <color name="textButton_color_day">#ff422504</color>
+    <color name="textButton_shadowColor_day">#ff454545</color>
+    <color name="button_background_startColor_day">#ffb6ac75</color>
+    <color name="button_background_centerColor_day">#ffb9b696</color>
+    <color name="button_background_endColor_day">#ff745b37</color>
+    <color name="button_background_stroke_day">#A0000000</color>
+
+    //tThemeNight
+    <color name="theme_background_startColor_night">#ff1e233f</color>
+    <color name="theme_background_endColor_night">#ff161929</color>
+    <color name="textTitle_color_night">#ffc1c2ab</color>
+    <color name="textTitle_shadowColor_night">#f6535651</color>
+    <color name="textRegular_color_night">#ff858585</color>
+    <color name="textButton_color_night">#c9bab9b2</color>
+    <color name="textButton_shadowColor_night">#ff585858</color>
+    <color name="button_background_startColor_night">#62fffca8</color>
+    <color name="button_background_centerColor_night">#12fffc91</color>
+    <color name="button_background_endColor_night">#1efffc8d</color>
+    <color name="button_background_stroke_night">#A0000000</color>
 </resources>

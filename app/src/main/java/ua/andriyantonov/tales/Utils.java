@@ -25,7 +25,7 @@ public class Utils {
                 activity.setTheme(R.style.ThemeDay);
                 break;
             case THEME_NIGHT:
-                activity.setTheme(R.style.ThemeDay);
+                activity.setTheme(R.style.ThemeNight);
                 break;
         }
     }

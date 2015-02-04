@@ -2,9 +2,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="ua.andriyantonov.tales.tale1"
+    tools:context="ua.andriyantonov.tales.TaleActivity"
     android:paddingLeft="10dp"
-    android:paddingRight="10dp">
+    android:paddingRight="10dp"
+    style="?pageBackground">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,7 +20,8 @@
             android:src="@drawable/play_select"
             android:id="@+id/btnPlayResume"
             android:onClick="onPlayClick"
-            android:layout_margin="5dp"/>
+            android:layout_margin="5dp"
+            style="?imageButton"/>
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,7 +31,8 @@
             android:src="@drawable/stop_select"
             android:layout_margin="5dp"
             android:background="@drawable/background"
-            android:layout_toRightOf="@+id/btnPlayResume"/>
+            android:layout_toRightOf="@+id/btnPlayResume"
+            style="?imageButton"/>
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,7 +41,8 @@
             android:src="@drawable/backward_select"
             android:layout_margin="5dp"
             android:background="@drawable/background"
-            android:layout_toRightOf="@+id/btnStop"/>
+            android:layout_toRightOf="@+id/btnStop"
+            style="?imageButton"/>
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,17 +51,17 @@
             android:layout_margin="5dp"
             android:src="@drawable/forward_select"
             android:background="@drawable/background"
-            android:layout_toRightOf="@+id/btnBackward"/>
+            android:layout_toRightOf="@+id/btnBackward"
+            style="?imageButton"/>
     </LinearLayout>
     <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/taleName"
             android:hint="taleName"
-            style="?textTitle"
             android:layout_centerHorizontal="true"
             android:layout_below="@+id/ll_player"
-        />
+            style="?textTitle"  />
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -73,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:id="@+id/teleText"
                     android:hint="taleText"
-                    style="@style/taleTextStyle" />
+                    style="?textRegular" />
                 </LinearLayout>
 
 

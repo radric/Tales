@@ -23,7 +23,7 @@ public class MainActivity extends Activity {
     Intent intent;
     public String taleName_str1,taleName_str2;
 
-    Button btn_tale1,btn_tale2;
+    Button btn_tale1,btn_tale2,btn_tale3,btn_tale4,btn_tale5,btn_tale6;
     int size;
     byte[] buffer;
     public static String TAG = "myLogs";
@@ -37,6 +37,10 @@ public class MainActivity extends Activity {
 
         btn_tale1 = (Button) findViewById(R.id.btn_tale1);
         btn_tale2 = (Button) findViewById(R.id.btn_tale2);
+        btn_tale3 = (Button) findViewById(R.id.btn_tale3);
+        btn_tale4 = (Button) findViewById(R.id.btn_tale4);
+        btn_tale5 = (Button) findViewById(R.id.btn_tale5);
+        btn_tale6 = (Button) findViewById(R.id.btn_tale6);
 
         getTaleNames();
     }
@@ -53,12 +57,33 @@ public class MainActivity extends Activity {
                 intent.putExtra("taleNameExtra",taleName_str2);
                 startActivity(intent);
                 break;
+            case R.id.btn_tale3:
+                intent = new Intent("ua.andriyantonov.tales.tale2");
+                intent.putExtra("taleNameExtra",taleName_str2);
+                startActivity(intent);
+                break;
+            case R.id.btn_tale4:
+                intent = new Intent("ua.andriyantonov.tales.tale2");
+                intent.putExtra("taleNameExtra",taleName_str2);
+                startActivity(intent);
+                break;
+            case R.id.btn_tale5:
+                intent = new Intent("ua.andriyantonov.tales.tale2");
+                intent.putExtra("taleNameExtra",taleName_str2);
+                startActivity(intent);
+                break;
+            case R.id.btn_tale6:
+                intent = new Intent("ua.andriyantonov.tales.tale2");
+                intent.putExtra("taleNameExtra",taleName_str2);
+                startActivity(intent);
+                break;
         }
     }
 
     private void getTaleNames() {
         am = getAssets();
         try {
+            //taleName1
             is = am.open("tale1_name.txt");
             size = is.available();
             buffer = new byte[size];
@@ -67,6 +92,7 @@ public class MainActivity extends Activity {
             taleName_str1 = new String(buffer);
             btn_tale1.setText(taleName_str1);
 
+            //taleName2
             is=am.open("tale2_name.txt");
             size=is.available();
             buffer = new byte[size];
@@ -74,6 +100,42 @@ public class MainActivity extends Activity {
             is.close();
             taleName_str2=new String(buffer);
             btn_tale2.setText(taleName_str2);
+
+            //taleName3
+            is=am.open("tale2_name.txt");
+            size=is.available();
+            buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            taleName_str2=new String(buffer);
+            btn_tale3.setText(taleName_str2);
+
+            //taleName4
+            is=am.open("tale2_name.txt");
+            size=is.available();
+            buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            taleName_str2=new String(buffer);
+            btn_tale4.setText(taleName_str2);
+
+            //taleName5
+            is=am.open("tale2_name.txt");
+            size=is.available();
+            buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            taleName_str2=new String(buffer);
+            btn_tale5.setText(taleName_str2);
+
+            //taleName6
+            is=am.open("tale2_name.txt");
+            size=is.available();
+            buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            taleName_str2=new String(buffer);
+            btn_tale6.setText(taleName_str2);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -109,5 +171,10 @@ public class MainActivity extends Activity {
         this.myWakeLock.release();
         super.onDestroy();
         Log.d(TAG,"onDestroy");
+    }
+    @Override
+    public void onBackPressed(){
+        closeContextMenu();
+        super.onBackPressed();
     }
 }

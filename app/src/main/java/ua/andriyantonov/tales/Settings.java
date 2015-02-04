@@ -1,9 +1,11 @@
 package ua.andriyantonov.tales;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -53,8 +55,15 @@ public class Settings extends Activity {
                 Utils.changeToTheme(this,Utils.THEME_DAY);
                 break;
             case R.id.chooseThemeNight:
-                Utils.changeToTheme(this,Utils.THEME_DAY);
+                Utils.changeToTheme(this,Utils.THEME_NIGHT);
                 break;
         }
     }
+    @Override
+    public void onBackPressed(){
+        Intent intent =new Intent(this, MainActivity.class);
+        startActivity(intent);
+        super.onBackPressed();
+        }
 }
+

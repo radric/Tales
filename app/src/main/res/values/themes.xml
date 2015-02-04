@@ -4,6 +4,16 @@
         <item name="pageBackground">@style/pageBackground_day</item>
         <item name="pagePaddingLayout">@style/pagePaddingLayout_day</item>
         <item name="textTitle">@style/textTitle_day</item>
-        <item name="android:orientation">vertical</item>
+        <item name="textRegular">@style/textRegular_day</item>
+        <item name="button">@style/button_day</item>
+        <item name="imageButton">@style/imageButton_day</item>
+    </style>
+    <style name="ThemeNight" parent="@android:style/Theme.NoTitleBar">
+        <item name="pageBackground">@style/pageBackground_night</item>
+        <item name="pagePaddingLayout">@style/pagePaddingLayout_night</item>
+        <item name="textTitle">@style/textTitle_night</item>
+        <item name="textRegular">@style/textRegular_night</item>
+        <item name="button">@style/button_night</item>
+        <item name="imageButton">@style/imageButton_night</item>
     </style>
 </resources>

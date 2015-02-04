@@ -3,4 +3,9 @@
     <attr name="pageBackground" format="reference" />
     <attr name="pagePaddingLayout" format="reference"/>
     <attr name="textTitle" format="reference"/>
+    <attr name="textRegular" format="reference"/>
+    <attr name="button" format="reference"/>
+    <attr name="imageButton" format="reference"/>
+
+    <attr name="alpha" format="reference"/>
 </resources>

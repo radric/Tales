@@ -1,9 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:layout_height="match_parent"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    style="?pageBackground"
+    tools:context=".MainActivity">
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -13,32 +13,86 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:contentDescription="I M A G E"
-            android:src="@drawable/image"/>
+            android:src="@drawable/let_k"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            style="?imageButton"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/let_a"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            style="?imageButton"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/let_z"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            style="?imageButton"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/let_k"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            style="?imageButton"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/let_a"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            style="?imageButton"/>
+
         </LinearLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/ll_logo">
     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true"
     >
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_tale1"
         android:onClick="onClickRead"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        style="?button"                />
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_tale2"
         android:onClick="onClickRead"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        style="?button" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_tale3"
+            android:onClick="onClickRead"
+            style="?button"                />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_tale4"
+            android:onClick="onClickRead"
+            style="?button" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_tale5"
+            android:onClick="onClickRead"
+            style="?button"                />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_tale6"
+            android:onClick="onClickRead"
+            style="?button" />
     </LinearLayout>
     </ScrollView>
 

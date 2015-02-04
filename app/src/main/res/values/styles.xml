@@ -1,24 +1,8 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="MyTaleTheme" parent="@android:style/Theme.Translucent.NoTitleBar.Fullscreen">
-        <item name="android:windowBackground">@drawable/background_theme_day</item>
-        <item name="android:orientation">vertical</item>
-    </style>
-    <style name="taleNameStyle">
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">25sp</item>
-        <item name="android:textAllCaps">true</item>
-    </style>
-    <style name="taleTextStyle">
-        <item name="android:textSize">19sp</item>
-    </style>
-
-
-
-//Theme.day
+//ThemeDay
     <style name="pageBackground_day">
-        <item name="android:windowBackground">@drawable/background_theme_day</item>
+        <item name="android:background">@drawable/background_theme_day</item>
     </style>
     <style name="pagePaddingLayout_day">
         <item name="android:padding">@dimen/page_margin_day</item>
@@ -30,10 +14,68 @@
         <item name="android:textSize">25sp</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:gravity">center_vertical</item>
-        <item name="android:shadowDx">1.0</item>
-        <item name="android:shadowDy">1.0</item>
-        <item name="android:shadowRadius">1</item>
+        <item name="android:shadowDx">2.0</item>
+        <item name="android:shadowDy">2.0</item>
+        <item name="android:shadowRadius">3</item>
         <item name="android:shadowColor">@color/textTitle_shadowColor_day</item>
     </style>
+    <style name="textRegular_day">
+        <item name="android:textColor">@color/textRegular_color_day</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="button_day">
+        <item name="android:background">@drawable/background_button_day</item>
+        <item name="android:layout_margin">3sp</item>
+        <item name="android:alpha">0.9</item>
+        <item name="android:textColor">@color/textButton_color_day</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowDx">2.0</item>
+        <item name="android:shadowDy">2.0</item>
+        <item name="android:shadowRadius">3</item>
+        <item name="android:shadowColor">@color/textButton_shadowColor_day</item>
+    </style>
+    <style name="imageButton_day">
+        <item name="android:alpha">1.0</item>
+    </style>
 
+    //ThemeNight
+    <style name="pageBackground_night">
+        <item name="android:background">@drawable/background_theme_night</item>
+    </style>
+    <style name="pagePaddingLayout_night">
+        <item name="android:padding">@dimen/page_margin_night</item>
+    </style>
+    <dimen name="page_margin_night">2sp</dimen>
+    <style name="textTitle_night">
+        <item name="android:textColor">@color/textTitle_color_night</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:shadowDx">2.0</item>
+        <item name="android:shadowDy">2.0</item>
+        <item name="android:shadowRadius">3</item>
+        <item name="android:shadowColor">@color/textTitle_shadowColor_night</item>
+        <item name="android:alpha">0.9</item>
+    </style>
+    <style name="textRegular_night">
+        <item name="android:textColor">@color/textRegular_color_night</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="button_night">
+        <item name="android:background">@drawable/background_button_night</item>
+        <item name="android:layout_margin">3sp</item>
+        <item name="android:textColor">@color/textButton_color_night</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:shadowDx">2.0</item>
+        <item name="android:shadowDy">2.0</item>
+        <item name="android:shadowRadius">3</item>
+        <item name="android:alpha">0.8</item>
+        <item name="android:shadowColor">@color/textButton_shadowColor_night</item>
+    </style>
+    <style name="imageButton_night">
+        <item name="android:alpha">0.3</item>
+    </style>
 </resources>
