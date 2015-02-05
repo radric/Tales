@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Tales</string>
-    <string name="action_settings">Налаштування</string>
+    <string name="mainSettings">Налаштування</string>
     <string name="title_activity_settings"></string>
     <string name="title_activity_tale1">tale</string>
     <string name="pause">Pause</string>
@@ -10,10 +10,13 @@
     <string name="stop">Stop</string>
     <string name="backward">Back</string>
     <string name="forward">Forw</string>
-
-
+    <string name="prefCategory_1">Налаштування</string>
+    <string name="ListPref_title_1">Оберіть тему відображення</string>
+    <string name="ListPref_summary_1">Різна контрастність для зручності читання при освітленні і в темряві</string>
+    <string name="ListPref_key_1">ListPrefKey</string>
     <string name="chooseThemeText">Оберіть тему для зручного читання:</string>
-    <string name="chooseThemeDayText"> Вдень</string>
-    <string name="chooseThemeNightText"> Вночі</string>
+    <string name="chooseThemeDayText">При освітленні</string>
+    <string name="chooseThemeNightText">В темряві</string>
+    <string name="title_activity_preferences">Налаштування</string>
 
 </resources>

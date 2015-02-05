@@ -155,17 +155,18 @@ public class TaleActivity extends Activity implements MediaPlayer.OnPreparedList
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_tale1, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            intent = new Intent(this,Settings.class);
-            startActivity(intent);
+        switch (id) {
+            case R.id.mainSettings:
+                intent = new Intent(this, Preferences.class);
+                startActivity(intent);
+                break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -189,6 +190,7 @@ public class TaleActivity extends Activity implements MediaPlayer.OnPreparedList
         super.onStop();
         releaseMP();
     }
+
     @Override
     public void onBackPressed(){
         Intent intent =new Intent(this, MainActivity.class);

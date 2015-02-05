@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.PowerManager;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,13 +19,12 @@ public class MainActivity extends Activity {
     public PowerManager.WakeLock myWakeLock;
     InputStream is;
     AssetManager am;
-    Intent intent;
+    Intent intent ;
     public String taleName_str1,taleName_str2;
 
     Button btn_tale1,btn_tale2,btn_tale3,btn_tale4,btn_tale5,btn_tale6;
     int size;
     byte[] buffer;
-    public static String TAG = "myLogs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +78,7 @@ public class MainActivity extends Activity {
         }
     }
 
+// get tale names from txt files from /main/assets
     private void getTaleNames() {
         am = getAssets();
         try {
@@ -140,6 +139,7 @@ public class MainActivity extends Activity {
             e.printStackTrace();
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -150,11 +150,12 @@ public class MainActivity extends Activity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
          int id = item.getItemId();
-         if (id == R.id.action_settings) {
-            intent = new Intent(this,Settings.class);
-            startActivity(intent);
+        switch (id) {
+            case R.id.mainSettings:
+                intent = new Intent(this, Preferences.class);
+                startActivity(intent);
+                break;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -166,15 +167,11 @@ public class MainActivity extends Activity {
         this.myWakeLock = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "My tag");
         this.myWakeLock.acquire();
     }
-    @Override
-    public void onDestroy(){
-        this.myWakeLock.release();
-        super.onDestroy();
-        Log.d(TAG,"onDestroy");
-    }
+
+
     @Override
     public void onBackPressed(){
-        closeContextMenu();
-        super.onBackPressed();
+        moveTaskToBack(true);
+        finish();
     }
 }
