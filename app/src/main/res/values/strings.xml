@@ -18,5 +18,12 @@
     <string name="chooseThemeDayText">При освітленні</string>
     <string name="chooseThemeNightText">В темряві</string>
     <string name="title_activity_preferences">Налаштування</string>
+    <string name="adb.setTitle">Увага!</string>
+    <string name="adb.setMessage">Ви впевнені що хочете вийти?</string>
+    <string name="adb.setPositive">Так</string>
+    <string name="adb.setNegative">Ні</string>
+
+
+
 
 </resources>

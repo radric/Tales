@@ -1,11 +1,14 @@
 package ua.andriyantonov.tales;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.os.PowerManager;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,11 +19,12 @@ import java.io.InputStream;
 
 public class MainActivity extends Activity {
 
-    public PowerManager.WakeLock myWakeLock;
-    InputStream is;
-    AssetManager am;
-    Intent intent ;
-    public String taleName_str1,taleName_str2;
+    private PowerManager.WakeLock myWakeLock;
+    private InputStream is;
+    private AssetManager am;
+    private Intent intent ;
+    private String taleName_str1,taleName_str2;
+    private final int REQUEST_CODE_MainActivity=1;
 
     Button btn_tale1,btn_tale2,btn_tale3,btn_tale4,btn_tale5,btn_tale6;
     int size;
@@ -29,6 +33,11 @@ public class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // all of onCreate data must be in onStart
+        // than preferences can be updated and themes can be changed
+    }
+    public void onStart(){
+        super.onStart();
         Utils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_main);
         onWakeLock();
@@ -153,11 +162,18 @@ public class MainActivity extends Activity {
         switch (id) {
             case R.id.mainSettings:
                 intent = new Intent(this, Preferences.class);
-                startActivity(intent);
+                startActivityForResult(intent,REQUEST_CODE_MainActivity);
+                super.onDestroy();
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        Log.d("myLogs", "requestCode = " + requestCode + ", resultCode = " + resultCode);
+        onStart();
+    }
+
 
 
 //    This code together with the one in onDestroy()
@@ -167,11 +183,22 @@ public class MainActivity extends Activity {
         this.myWakeLock = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "My tag");
         this.myWakeLock.acquire();
     }
-
-
-    @Override
     public void onBackPressed(){
-        moveTaskToBack(true);
-        finish();
+        final AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        adb.setTitle(R.string.adb_setTitle);
+        adb.setMessage(R.string.adb_setMessage);
+        adb.setPositiveButton(R.string.adb_setPositive,new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+               finish();
+            }
+        });
+        adb.setNegativeButton(R.string.adb_setNegative,new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        adb.show();
     }
 }

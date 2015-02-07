@@ -19,7 +19,8 @@ import static ua.andriyantonov.tales.R.drawable.play_select;
 
 public class TaleActivity extends Activity implements MediaPlayer.OnPreparedListener {
 
-    public static String TAG = "myLogs";
+    private static String TAG = "myLogs";
+    private final int REQUEST_CODE_TailActivity=2;
 
     MediaPlayer mediaPlayer;
     AudioManager am;
@@ -34,6 +35,11 @@ public class TaleActivity extends Activity implements MediaPlayer.OnPreparedList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // all of onCreate data must be in onStart
+        // than preferences can be updated and themes can be changed
+    }
+    public void onStart(){
+        super.onStart();
         Utils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_tales);
 
@@ -50,6 +56,8 @@ public class TaleActivity extends Activity implements MediaPlayer.OnPreparedList
 
         getTaleText();
 
+        if (mediaPlayer==null){
+        }else mediaPlayer.release();
     }
 
     //get tale Text depending on action
@@ -164,19 +172,18 @@ public class TaleActivity extends Activity implements MediaPlayer.OnPreparedList
         switch (id) {
             case R.id.mainSettings:
                 intent = new Intent(this, Preferences.class);
-                startActivity(intent);
+                startActivityForResult(intent,REQUEST_CODE_TailActivity);
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
-
     @Override
-    public void onStart(){
-        Log.d(TAG,"start");
-        super.onStart();
-        if (mediaPlayer==null){
-        }else mediaPlayer.release();
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        Log.d("myLogs", "requestCode = " + requestCode + ", resultCode = " + resultCode);
+        onStart();
     }
+
+
     @Override
     public void onPause(){
         Log.d(TAG,"pause");

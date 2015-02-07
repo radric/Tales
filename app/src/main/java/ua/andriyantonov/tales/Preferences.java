@@ -38,7 +38,8 @@ public class Preferences extends PreferenceActivity implements SharedPreferences
     }
 
     public void onBackPressed(){
-        Intent intent = new Intent(this,MainActivity.class);
-        startActivity(intent);
+        Intent intent = new Intent();
+        setResult(RESULT_OK,intent);
+        finish();
     }
 }
