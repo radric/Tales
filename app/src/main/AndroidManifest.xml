@@ -28,13 +28,18 @@
             <intent-filter>
                 <action android:name="ua.andriyantonov.tales.tale1" />
                 <action android:name="ua.andriyantonov.tales.tale2" />
-
+                <action android:name="ua.andriyantonov.tales.tale3" />
+                <action android:name="ua.andriyantonov.tales.tale4" />
+                <action android:name="ua.andriyantonov.tales.tale5" />
+                <action android:name="ua.andriyantonov.tales.tale6" />
+                <action android:name="ua.andriyantonov.tales.tale7" />
+                <action android:name="ua.andriyantonov.tales.tale8" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Preferences"
-            android:label="@string/title_activity_preferences" >
+            android:launchMode="singleTask">
         </activity>
     </application>
 

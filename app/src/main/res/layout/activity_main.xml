@@ -93,6 +93,12 @@
             android:id="@+id/btn_tale6"
             android:onClick="onClickRead"
             style="?button" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_tale7"
+            android:onClick="onClickRead"
+            style="?button" />
     </LinearLayout>
     </ScrollView>
 

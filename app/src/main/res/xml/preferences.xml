@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
-        android:title="@string/prefCategory_1">
+        android:title="@string/mainSettings">
         <ListPreference
             android:title="@string/ListPref_title_1"
             android:summary="@string/ListPref_summary_1"
             android:key="@string/ListPref_key_1"
-            android:entries="@array/ListPref_array"
-            android:entryValues="@array/ListPref_values"
+            android:entries="@array/ListPref_array_theme"
+            android:entryValues="@array/ListPref_values_theme"
             android:defaultValue="0"/>
+        <ListPreference
+            android:title="@string/ListPref_title_2"
+            android:summary="@string/ListPref_summary_2"
+            android:key="@string/ListPref_key_2"
+            android:entries="@array/ListPref_array_fontSize"
+            android:entryValues="@array/ListPref_values_fontSize"
+            android:defaultValue="1"/>
+
+
+
     </PreferenceCategory>
 
 </PreferenceScreen>

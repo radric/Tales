@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Tales</string>
+    <string name="app_name">Казки</string>
     <string name="mainSettings">Налаштування</string>
-    <string name="title_activity_settings"></string>
     <string name="title_activity_tale1">tale</string>
     <string name="pause">Pause</string>
     <string name="play">Play</string>
@@ -11,13 +10,21 @@
     <string name="backward">Back</string>
     <string name="forward">Forw</string>
     <string name="prefCategory_1">Налаштування</string>
-    <string name="ListPref_title_1">Оберіть тему відображення</string>
+    <string name="ListPref_title_1">Тема відображення</string>
     <string name="ListPref_summary_1">Різна контрастність для зручності читання при освітленні і в темряві</string>
-    <string name="ListPref_key_1">ListPrefKey</string>
+    <string name="ListPref_key_1">ListPrefKey1</string>
+
+    <string name="ListPref_title_2">Розмір шрифту</string>
+    <string name="ListPref_summary_2">Оберіть зручний собі розмір шрифту для тексту казки</string>
+    <string name="ListPref_key_2">ListPrefKey2</string>
+    <string name="ListPref_array_fontSize_small">Малий</string>
+    <string name="ListPref_array_fontSize_midle">Середній</string>
+    <string name="ListPref_array_fontSize_big">Великий</string>
+    <string name="ListPref_array_fontSize_huge">Величееезний :)</string>
+
     <string name="chooseThemeText">Оберіть тему для зручного читання:</string>
     <string name="chooseThemeDayText">При освітленні</string>
     <string name="chooseThemeNightText">В темряві</string>
-    <string name="title_activity_preferences">Налаштування</string>
     <string name="adb.setTitle">Увага!</string>
     <string name="adb.setMessage">Ви впевнені що хочете вийти?</string>
     <string name="adb.setPositive">Так</string>

@@ -12,9 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import static ua.andriyantonov.tales.R.drawable.play_select;
 
 public class TaleActivity extends Activity implements MediaPlayer.OnPreparedListener {
@@ -22,15 +23,17 @@ public class TaleActivity extends Activity implements MediaPlayer.OnPreparedList
     private static String TAG = "myLogs";
     private final int REQUEST_CODE_TailActivity=2;
 
-    MediaPlayer mediaPlayer;
-    AudioManager am;
-    ImageButton btnPlayResume;
-    TextView taleName_txtvw,taleText_txtvw;
-    String taleName_str,action;
-    InputStream is;
-    Intent intent;
-    int play_flag=0,size;
-    byte[] buffer;
+    private MediaPlayer mediaPlayer;
+    private AudioManager am;
+    private ImageButton btnPlayResume;
+    private TextView taleName_txtvw;
+    public TextView taleText_txtvw;
+    private String taleName_str,action;
+    private InputStream is;
+    private AssetManager assetM;
+    private Intent intent;
+    private int play_flag=0,size;
+    private byte[] buffer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,13 +44,14 @@ public class TaleActivity extends Activity implements MediaPlayer.OnPreparedList
     public void onStart(){
         super.onStart();
         Utils.onActivityCreateSetTheme(this);
+        Utils.onTaleTextSetSize(this);
         setContentView(R.layout.activity_tales);
 
         am = (AudioManager) getSystemService(AUDIO_SERVICE);
         btnPlayResume = (ImageButton) findViewById(R.id.btnPlayResume);
 
         taleName_txtvw = (TextView) findViewById(R.id.taleName);
-        taleText_txtvw = (TextView) findViewById(R.id.teleText);
+        taleText_txtvw = (TextView) findViewById(R.id.taleText);
 
         Intent intent = getIntent();
         taleName_str = intent.getStringExtra("taleNameExtra");
@@ -62,11 +66,11 @@ public class TaleActivity extends Activity implements MediaPlayer.OnPreparedList
 
     //get tale Text depending on action
     public void getTaleText() {
-        AssetManager assetManager = getAssets();
+        assetM = getAssets();
         if (action.equals("ua.andriyantonov.tales.tale1")){
             // reading the *.txt files
             try {
-                is = assetManager.open("tale1_text.txt");
+                is = assetM.open("tale1_text.txt");
                 size = is.available();
                 buffer = new byte[size];
                 is.read(buffer);
@@ -79,7 +83,7 @@ public class TaleActivity extends Activity implements MediaPlayer.OnPreparedList
 
         } else if (action.equals("ua.andriyantonov.tales.tale2")){
             try {
-                is = assetManager.open("tale2_text.txt");
+                is = assetM.open("tale2_text.txt");
                 size = is.available();
                 buffer = new byte[size];
                 is.read(buffer);
@@ -89,8 +93,66 @@ public class TaleActivity extends Activity implements MediaPlayer.OnPreparedList
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            if (play_flag==0) {
-                mediaPlayer = MediaPlayer.create(this, R.raw.tale2_audio);}
+        } else if (action.equals("ua.andriyantonov.tales.tale3")){
+            try {
+                is = assetM.open("tale3_text.txt");
+                size = is.available();
+                buffer = new byte[size];
+                is.read(buffer);
+                is.close();
+                String text = new String(buffer);
+                taleText_txtvw.setText(text);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (action.equals("ua.andriyantonov.tales.tale4")){
+            try {
+                is = assetM.open("tale4_text.txt");
+                size = is.available();
+                buffer = new byte[size];
+                is.read(buffer);
+                is.close();
+                String text = new String(buffer);
+                taleText_txtvw.setText(text);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (action.equals("ua.andriyantonov.tales.tale5")){
+            try {
+                is = assetM.open("tale5_text.txt");
+                size = is.available();
+                buffer = new byte[size];
+                is.read(buffer);
+                is.close();
+                String text = new String(buffer);
+                taleText_txtvw.setText(text);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (action.equals("ua.andriyantonov.tales.tale6")){
+            try {
+                is = assetM.open("tale6_text.txt");
+                size = is.available();
+                buffer = new byte[size];
+                is.read(buffer);
+                is.close();
+                String text = new String(buffer);
+                taleText_txtvw.setText(text);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else if (action.equals("ua.andriyantonov.tales.tale7")){
+            try {
+                is = assetM.open("tale7_text.txt");
+                size = is.available();
+                buffer = new byte[size];
+                is.read(buffer);
+                is.close();
+                String text = new String(buffer);
+                taleText_txtvw.setText(text);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -100,6 +162,16 @@ public class TaleActivity extends Activity implements MediaPlayer.OnPreparedList
             mediaPlayer = MediaPlayer.create(this, R.raw.tale1_audio);
         } else if (action.equals("ua.andriyantonov.tales.tale2")){
             mediaPlayer = MediaPlayer.create(this, R.raw.tale2_audio);
+        } else if (action.equals("ua.andriyantonov.tales.tale3")){
+            mediaPlayer = MediaPlayer.create(this, R.raw.tale3_audio);
+        } else if (action.equals("ua.andriyantonov.tales.tale4")){
+            mediaPlayer = MediaPlayer.create(this, R.raw.tale4_audio);
+        } else if (action.equals("ua.andriyantonov.tales.tale5")){
+            mediaPlayer = MediaPlayer.create(this, R.raw.tale5_audio);
+        } else if (action.equals("ua.andriyantonov.tales.tale6")){
+            mediaPlayer = MediaPlayer.create(this, R.raw.tale6_audio);
+        } else if (action.equals("ua.andriyantonov.tales.tale7")){
+            mediaPlayer = MediaPlayer.create(this, R.raw.tale7_audio);
         }
     }
 
@@ -107,7 +179,7 @@ public class TaleActivity extends Activity implements MediaPlayer.OnPreparedList
     public void onPlayClick(View view)  {
         switch (view.getId()){
             case R.id.btnPlayResume:
-                if (play_flag==0) {
+                if (play_flag==0||play_flag==2) {
                     getTaleAudio();
                     mediaPlayer.start();
                     play_flag = 1;
@@ -116,18 +188,13 @@ public class TaleActivity extends Activity implements MediaPlayer.OnPreparedList
                 } else if (play_flag == 1){
                 mediaPlayer.pause();
                 play_flag = 2;
-                btnPlayResume.setImageResource(play_select);
-                    break;
-                } else if(play_flag==2)
-                mediaPlayer.start();
-                play_flag=1;
-                btnPlayResume.setImageResource(R.drawable.pause_select);
-                break;
+                btnPlayResume.setImageResource(R.drawable.play_select);
+                } break;
             case R.id.btnStop:
                 if (play_flag==1)
                 mediaPlayer.stop();
                 play_flag=0;
-                btnPlayResume.setImageResource(play_select);
+                btnPlayResume.setImageResource(R.drawable.play_select);
                 break;
             case R.id.btnBackward:
                 if (play_flag==1)
@@ -162,7 +229,6 @@ public class TaleActivity extends Activity implements MediaPlayer.OnPreparedList
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -183,17 +249,8 @@ public class TaleActivity extends Activity implements MediaPlayer.OnPreparedList
         onStart();
     }
 
-
-    @Override
-    public void onPause(){
-        Log.d(TAG,"pause");
-        super.onPause();
-        if (play_flag==1)
-            mediaPlayer.pause();
-    }
     @Override
     public void onStop(){
-        Log.d(TAG,"stop");
         super.onStop();
         releaseMP();
     }

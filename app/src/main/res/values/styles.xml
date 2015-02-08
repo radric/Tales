@@ -21,7 +21,6 @@
     </style>
     <style name="textRegular_day">
         <item name="android:textColor">@color/textRegular_color_day</item>
-        <item name="android:textSize">18sp</item>
     </style>
     <style name="button_day">
         <item name="android:background">@drawable/background_button_day</item>
@@ -61,7 +60,6 @@
     </style>
     <style name="textRegular_night">
         <item name="android:textColor">@color/textRegular_color_night</item>
-        <item name="android:textSize">18sp</item>
     </style>
     <style name="button_night">
         <item name="android:background">@drawable/background_button_night</item>
@@ -77,5 +75,20 @@
     </style>
     <style name="imageButton_night">
         <item name="android:alpha">0.3</item>
+    </style>
+
+
+    //////////// Tale Text Font Size
+    <style name="taleTextFontSize_small">
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="taleTextFontSize_midle">
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="taleTextFontSize_big">
+        <item name="android:textSize">25sp</item>
+    </style>
+    <style name="taleTextFontSize_huge">
+        <item name="android:textSize">35sp</item>
     </style>
 </resources>

@@ -17,12 +17,12 @@
     //tThemeNight
     <color name="theme_background_startColor_night">#ff1e233f</color>
     <color name="theme_background_endColor_night">#ff161929</color>
-    <color name="textTitle_color_night">#ffc1c2ab</color>
+    <color name="textTitle_color_night">#ffa2a390</color>
     <color name="textTitle_shadowColor_night">#f6535651</color>
-    <color name="textRegular_color_night">#ff858585</color>
-    <color name="textButton_color_night">#c9bab9b2</color>
+    <color name="textRegular_color_night">#ff5b5b5b</color>
+    <color name="textButton_color_night">#c98b8a85</color>
     <color name="textButton_shadowColor_night">#ff585858</color>
-    <color name="button_background_startColor_night">#62fffca8</color>
+    <color name="button_background_startColor_night">#62b7b478</color>
     <color name="button_background_centerColor_night">#12fffc91</color>
     <color name="button_background_endColor_night">#1efffc8d</color>
     <color name="button_background_stroke_night">#A0000000</color>

@@ -5,30 +5,36 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.os.PowerManager;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 
 public class MainActivity extends Activity {
 
     private PowerManager.WakeLock myWakeLock;
-    private InputStream is;
-    private AssetManager am;
+    private InputStreamReader is;
+    private AssetManager assetM;
     private Intent intent ;
-    private String taleName_str1,taleName_str2;
+    private String taleName_str1,taleName_str2,taleName_str3,taleName_str4,taleName_str5,taleName_str6,
+    taleName_str7;
     private final int REQUEST_CODE_MainActivity=1;
+    private BufferedReader reader;
 
-    Button btn_tale1,btn_tale2,btn_tale3,btn_tale4,btn_tale5,btn_tale6;
-    int size;
-    byte[] buffer;
+    private Button btn_tale1,btn_tale2,btn_tale3,btn_tale4,btn_tale5,btn_tale6,btn_tale7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,7 @@ public class MainActivity extends Activity {
     }
     public void onStart(){
         super.onStart();
+        Log.d("myLogs","Utils");
         Utils.onActivityCreateSetTheme(this);
         setContentView(R.layout.activity_main);
         onWakeLock();
@@ -48,6 +55,7 @@ public class MainActivity extends Activity {
         btn_tale4 = (Button) findViewById(R.id.btn_tale4);
         btn_tale5 = (Button) findViewById(R.id.btn_tale5);
         btn_tale6 = (Button) findViewById(R.id.btn_tale6);
+        btn_tale7 = (Button) findViewById(R.id.btn_tale7);
 
         getTaleNames();
     }
@@ -65,85 +73,135 @@ public class MainActivity extends Activity {
                 startActivity(intent);
                 break;
             case R.id.btn_tale3:
-                intent = new Intent("ua.andriyantonov.tales.tale2");
-                intent.putExtra("taleNameExtra",taleName_str2);
+                intent = new Intent("ua.andriyantonov.tales.tale3");
+                intent.putExtra("taleNameExtra",taleName_str3);
                 startActivity(intent);
                 break;
             case R.id.btn_tale4:
-                intent = new Intent("ua.andriyantonov.tales.tale2");
-                intent.putExtra("taleNameExtra",taleName_str2);
+                intent = new Intent("ua.andriyantonov.tales.tale4");
+                intent.putExtra("taleNameExtra",taleName_str4);
                 startActivity(intent);
                 break;
             case R.id.btn_tale5:
-                intent = new Intent("ua.andriyantonov.tales.tale2");
-                intent.putExtra("taleNameExtra",taleName_str2);
+                intent = new Intent("ua.andriyantonov.tales.tale5");
+                intent.putExtra("taleNameExtra",taleName_str5);
                 startActivity(intent);
                 break;
             case R.id.btn_tale6:
-                intent = new Intent("ua.andriyantonov.tales.tale2");
-                intent.putExtra("taleNameExtra",taleName_str2);
+                intent = new Intent("ua.andriyantonov.tales.tale6");
+                intent.putExtra("taleNameExtra",taleName_str6);
+                startActivity(intent);
+                break;
+            case R.id.btn_tale7:
+                intent = new Intent("ua.andriyantonov.tales.tale7");
+                intent.putExtra("taleNameExtra",taleName_str7);
                 startActivity(intent);
                 break;
         }
     }
 
-// get tale names from txt files from /main/assets
+//get tale names from txt files from /main/assets
     private void getTaleNames() {
-        am = getAssets();
+        assetM = getAssets();
         try {
             //taleName1
-            is = am.open("tale1_name.txt");
-            size = is.available();
-            buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            taleName_str1 = new String(buffer);
+            is = new InputStreamReader(assetM.open("tale1_name.txt"));
+            reader = new BufferedReader(is);
+            taleName_str1 = reader.readLine();
             btn_tale1.setText(taleName_str1);
 
             //taleName2
-            is=am.open("tale2_name.txt");
-            size=is.available();
-            buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            taleName_str2=new String(buffer);
+            is = new InputStreamReader(assetM.open("tale2_name.txt"));
+            reader = new BufferedReader(is);
+            taleName_str2 = reader.readLine();
             btn_tale2.setText(taleName_str2);
 
             //taleName3
-            is=am.open("tale2_name.txt");
-            size=is.available();
-            buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            taleName_str2=new String(buffer);
-            btn_tale3.setText(taleName_str2);
+            is = new InputStreamReader(assetM.open("tale3_name.txt"));
+            reader = new BufferedReader(is);
+            taleName_str3 = reader.readLine();
+            btn_tale3.setText(taleName_str3);
 
             //taleName4
-            is=am.open("tale2_name.txt");
-            size=is.available();
-            buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            taleName_str2=new String(buffer);
-            btn_tale4.setText(taleName_str2);
+            is = new InputStreamReader(assetM.open("tale4_name.txt"));
+            reader = new BufferedReader(is);
+            taleName_str4 = reader.readLine();
+            btn_tale4.setText(taleName_str4);
 
             //taleName5
-            is=am.open("tale2_name.txt");
-            size=is.available();
-            buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            taleName_str2=new String(buffer);
-            btn_tale5.setText(taleName_str2);
+            is = new InputStreamReader(assetM.open("tale5_name.txt"));
+            reader = new BufferedReader(is);
+            taleName_str5 = reader.readLine();
+            btn_tale5.setText(taleName_str5);
 
             //taleName6
-            is=am.open("tale2_name.txt");
-            size=is.available();
-            buffer = new byte[size];
-            is.read(buffer);
-            is.close();
-            taleName_str2=new String(buffer);
-            btn_tale6.setText(taleName_str2);
+            is = new InputStreamReader(assetM.open("tale6_name.txt"));
+            reader = new BufferedReader(is);
+            taleName_str6 = reader.readLine();
+            btn_tale6.setText(taleName_str6);
+
+            //taleName6
+            is = new InputStreamReader(assetM.open("tale7_name.txt"));
+            reader = new BufferedReader(is);
+            taleName_str7 = reader.readLine();
+            btn_tale7.setText(taleName_str7);
+
+
+            reader.close();
+
+//            //taleName1
+//            is = am.open("tale1_name.txt");
+//            size = is.available();
+//            buffer = new byte[size];
+//            is.read(buffer);
+//            is.close();
+//            taleName_str1 = new String(buffer);
+//            btn_tale1.setText(taleName_str1);
+
+            //taleName2
+//            is=am.open("tale2_name.txt");
+//            size=is.available();
+//            buffer = new byte[size];
+//            is.read(buffer);
+//            is.close();
+//            taleName_str2=new String(buffer);
+//            btn_tale2.setText(taleName_str2);
+//
+//            //taleName3
+//            is=am.open("tale2_name.txt");
+//            size=is.available();
+//            buffer = new byte[size];
+//            is.read(buffer);
+//            is.close();
+//            taleName_str2=new String(buffer);
+//            btn_tale3.setText(taleName_str2);
+//
+//            //taleName4
+//            is=am.open("tale2_name.txt");
+//            size=is.available();
+//            buffer = new byte[size];
+//            is.read(buffer);
+//            is.close();
+//            taleName_str2=new String(buffer);
+//            btn_tale4.setText(taleName_str2);
+//
+//            //taleName5
+//            is=am.open("tale2_name.txt");
+//            size=is.available();
+//            buffer = new byte[size];
+//            is.read(buffer);
+//            is.close();
+//            taleName_str2=new String(buffer);
+//            btn_tale5.setText(taleName_str2);
+//
+//            //taleName6
+//            is=am.open("tale2_name.txt");
+//            size=is.available();
+//            buffer = new byte[size];
+//            is.read(buffer);
+//            is.close();
+//            taleName_str2=new String(buffer);
+//            btn_tale6.setText(taleName_str2);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -151,7 +209,6 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
@@ -168,13 +225,13 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    //return intent-action from preferences
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         Log.d("myLogs", "requestCode = " + requestCode + ", resultCode = " + resultCode);
         onStart();
     }
-
-
 
 //    This code together with the one in onDestroy()
 //    will make the screen be always on until this Activity gets destroyed
@@ -183,6 +240,8 @@ public class MainActivity extends Activity {
         this.myWakeLock = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "My tag");
         this.myWakeLock.acquire();
     }
+
+    //alert to ask R user shure that he want to exit
     public void onBackPressed(){
         final AlertDialog.Builder adb = new AlertDialog.Builder(this);
         adb.setTitle(R.string.adb_setTitle);
